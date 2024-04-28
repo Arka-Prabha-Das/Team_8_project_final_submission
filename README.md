@@ -4,18 +4,18 @@
 
 # How to run the App:
 
-In root directory : npm install
+In root directory : **npm install**
 
-In /src : npm run dev
+In /src : **npm run dev**
 
 # To access admin panel :
 
 1. Use credentials to first sign in : 
 
-**Username**: admin@admin.com 
+**Username**: admin@admin.com,   
 **Password**: Test@132  
 
-2. Use /admin after the url and press Enter. Screenshots are attached below :
+2. Use **/admin** after the url and press Enter. Screenshots are attached below :
 
 ## Screenshots
 
