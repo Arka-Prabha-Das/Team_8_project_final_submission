@@ -36,4 +36,14 @@ const DisputeDetails = ({ bid, user }) => {
   );
 };
 
+const getRaisedBy = (dispute, user) => {
+  if (user.uid === dispute.raisedBy) {
+    return "You";
+  } else if (user.role === 2) {
+    return "Owner";
+  } else {
+    return "Customer";
+  }
+};
+
 export default DisputeDetails;
