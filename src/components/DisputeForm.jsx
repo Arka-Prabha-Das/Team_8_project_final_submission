@@ -1,22 +1,18 @@
-/* eslint-disable react/prop-types */
-import  { useState } from 'react';
+import { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 
-
-const DisputeForm = ({data, user, toggle}) => {
+const DisputeForm = ({ data, user, toggle }) => {
   const [issue, setIssue] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const uid = data.cid;
-    const oid = data.oid;
-    const bid = data.id;
+    const { cid, oid, id: bid } = data;
     const raisedBy = user.uid;
 
     try {
-      await await addDoc(collection(firestore, "disputes"), {
-        uid,
+      await addDoc(collection(firestore, "disputes"), {
+        uid: cid,
         oid,
         bid,
         issue,
@@ -34,17 +30,21 @@ const DisputeForm = ({data, user, toggle}) => {
   return (
     <div className="max-w-md mx-auto mt-10">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <h2 className="text-xl font-semibold mb-2">Submit a Dispute</h2>
         <textarea
           value={issue}
           onChange={(e) => setIssue(e.target.value)}
           className="p-2 border rounded"
           placeholder="Describe the issue"
-          rows="4"
+          rows="6"
           required
         />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
-          Submit Dispute
-        </button>
+        <div className="flex justify-end">
+          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Submit
+          </button>
+          
+        </div>
       </form>
     </div>
   );
