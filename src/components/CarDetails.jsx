@@ -17,22 +17,6 @@ const CarDetails = () => {
 
 
     useEffect(() => {
-        
-        const fetchOwnerDetails = async (uid) => {
-            try {
-                const docRef = doc(collection(firestore, "users"), uid);
-                const docSnapshot = await getDoc(docRef);
-
-                if (docSnapshot.exists()) {
-
-                    setOwner(docSnapshot.data());
-                } else {
-                    console.log("No such user!");
-                }
-            } catch (error) {
-                console.error("Error fetching owner details: ", error);
-            }
-        };
         const fetchCarDetails = async () => {
             try {
                 const docRef = doc(firestore, "cars", carID);
@@ -68,6 +52,21 @@ const CarDetails = () => {
             }
         };
 
+        const fetchOwnerDetails = async (uid) => {
+            try {
+                const docRef = doc(collection(firestore, "users"), uid);
+                const docSnapshot = await getDoc(docRef);
+
+                if (docSnapshot.exists()) {
+
+                    setOwner(docSnapshot.data());
+                } else {
+                    console.log("No such user!");
+                }
+            } catch (error) {
+                console.error("Error fetching owner details: ", error);
+            }
+        };
 
         fetchCarDetails().then(carData => {
             if (carData) {
