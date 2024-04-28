@@ -28,6 +28,7 @@ const bookingsReducer = (state = initialState, action) => {
                     },
                 },
             };
+            
         default:
             return state;
     }
