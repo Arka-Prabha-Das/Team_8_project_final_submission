@@ -1,3 +1,11 @@
+# Link of the Deployed Website : 
+
+ec2-52-15-185-57.us-east-2.compute.amazonaws.com:5173
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
