@@ -1,4 +1,13 @@
-    const CarForm = ({ user, toggle, fetch, isEditMode = false, editData }) => {
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+
+import { storage, firestore } from "../firebase"; // Assume this is your Firebase setup file
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+
+const CarForm = ({ user, toggle, fetch, isEditMode = false, editData }) => {
     const [carName, setCarName] = useState("");
     const [gear, setGear] = useState("");
     const [luggage, setLuggage] = useState("");
@@ -138,3 +147,182 @@
             }
         }
     };
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit} className="w-full rounded-md ">
+                <div className="px-6 border-l-2 border-r-2 border-b-2 border-gray-100">
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="Full Name">Name of the car</label>
+                        <input
+                            type="text"
+                            label="name"
+                            value={carName}
+                            onChange={(e) => setCarName(e.target.value)}
+                            required
+                            placeholder="Car Name"
+                            className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                        />
+                    </div>
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="Full Name">No of Passengers</label>
+                        <input
+                            type="number"
+                            label="email"
+                            value={passengers}
+                            onChange={(e) => setPassengers(e.target.value)}
+                            required
+                            placeholder="0"
+                            className="border-gray-100 rounded-sm border-2 p-2"
+                        />
+
+                    </div>
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="Full Name">Luggage Capacity</label>
+                        <input
+                            type="text"
+                            label="phone"
+                            value={luggage}
+                            onChange={(e) => setLuggage(e.target.value)}
+                            required
+                            placeholder="0"
+                            className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                        />
+                    </div>
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="carType">Type of the Car</label>
+                        <select
+                            id="carType"
+                            value={type}
+                            onChange={(e) => setType(e.target.value)}
+                            required
+                            className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                        >
+                            <option value="">Select car type</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="coupe">Coupe</option>
+                        </select>
+                    </div>
+
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="gearType">Type of Gear</label>
+                        <select
+                            id="gearType"
+                            value={gear}
+                            onChange={(e) => setGear(e.target.value)}
+                            required
+                            className="bg-transparent  border-gray-100 rounded-sm border-2 p-2"
+                        >
+                            <option value="">Select gear type</option>
+                            <option value="automatic">Automatic</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="manual">Manual</option>
+                        </select>
+                    </div>
+
+                    <div className="flex flex-col mt-6">
+                        <label htmlFor="Full Name">Price Per Hour</label>
+                        <input
+                            type="number"
+                            label="pickup-date"
+                            value={pph}
+                            onChange={(e) => setPPh(e.target.value)}
+                            required
+                            placeholder="$0"
+                            className="bg-transparent  border-gray-100 rounded-sm border-2 p-2"
+                        />
+                    </div>
+                    {!isEditMode && <div className="flex flex-col mt-6">
+                        <label htmlFor="carImage">Car Image</label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => setImage(e.target.files[0])}
+                            required
+                            className="border-gray-100 rounded-sm border-2 p-2"
+                        />
+                    </div>}
+                    <div className="flex flex-col mt-6">
+                <label htmlFor="insuranceCompany">Insurance Company</label>
+                <input
+                    type="text"
+                    id="insuranceCompany"
+                    value={insuranceCompany}
+                    onChange={(e) => setInsuranceCompany(e.target.value)}
+                    required
+                    placeholder="Insurance Company Name"
+                    className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>
+
+            <div className="flex flex-col mt-6">
+                <label htmlFor="policyNumber">Policy Number</label>
+                <input
+                    type="text"
+                    id="policyNumber"
+                    value={policyNumber}
+                    onChange={(e) => setPolicyNumber(e.target.value)}
+                    required
+                    placeholder="Policy Number"
+                    className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>
+
+            <div className="flex flex-col mt-6">
+                <label htmlFor="policyStartDate">Policy Start Date</label>
+                <input
+                    type="date"
+                    id="policyStartDate"
+                    value={policyStartDate}
+                    onChange={(e) => setPolicyStartDate(e.target.value)}
+                    required
+                    className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>
+
+            <div className="flex flex-col mt-6">
+                <label htmlFor="policyEndDate">Policy End Date</label>
+                <input
+                    type="date"
+                    id="policyEndDate"
+                    value={policyEndDate}
+                    onChange={(e) => setPolicyEndDate(e.target.value)}
+                    required
+                    className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>
+
+            <div className="flex flex-col mt-6">
+                <label htmlFor="coverageLimits">Coverage Limits</label>
+                <input
+                    type="text"
+                    id="coverageLimits"
+                    value={coverageLimits}
+                    onChange={(e) => setCoverageLimits(e.target.value)}
+                    required
+                    placeholder="Coverage Limits"
+                    className="bg-transparent border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>
+            {!isEditMode && <div className="flex flex-col mt-6">
+                <label htmlFor="insuranceCertificate">Insurance Certificate</label>
+                <input
+                    type="file"
+                    id="insuranceCertificate"
+                    onChange={(e) => setInsuranceCertificate(e.target.files[0])}
+                    required={!isEditMode} // Only required if not in edit mode
+                    className="border-gray-100 rounded-sm border-2 p-2"
+                />
+            </div>}
+
+
+                    <div className="mx-auto w-[50%]"><button className="p-3 bg-green-600 rounded-md mx-auto my-6 w-full">{isEditMode?"Edit Car": "Add Car"}</button></div>
+                </div>
+            </form>
+            {uploadProgress > 0 && <div>Upload is {uploadProgress}% done</div>}
+        </div>
+    );
+}
+
+export default CarForm;
