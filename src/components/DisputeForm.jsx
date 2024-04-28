@@ -43,7 +43,9 @@ const DisputeForm = ({ data, user, toggle }) => {
           <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
             Submit
           </button>
-          
+          <button type="button" onClick={() => toggle(false)} className="ml-4 bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400">
+            Cancel
+          </button>
         </div>
       </form>
     </div>
