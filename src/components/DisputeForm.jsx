@@ -4,6 +4,7 @@ import { firestore } from "../firebase";
 
 const DisputeForm = ({ data, user, toggle }) => {
   const [issue, setIssue] = useState('');
+  const [isImportant, setIsImportant] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,10 +18,12 @@ const DisputeForm = ({ data, user, toggle }) => {
         bid,
         issue,
         status: 'pending',
-        raisedBy
+        raisedBy,
+        isImportant // Include isImportant in the document
       });
       alert('Dispute submitted successfully!');
       setIssue('');
+      setIsImportant(false); // Reset isImportant state
       toggle(false);
     } catch (error) {
       alert('Error submitting dispute: ', error.message);
@@ -39,6 +42,14 @@ const DisputeForm = ({ data, user, toggle }) => {
           rows="6"
           required
         />
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={isImportant}
+            onChange={(e) => setIsImportant(e.target.checked)}
+          />
+          <span>Mark as Important</span>
+        </label>
         <div className="flex justify-end">
           <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
             Submit
