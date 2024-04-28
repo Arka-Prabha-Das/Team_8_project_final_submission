@@ -14,7 +14,21 @@ const DisputeForm = ({data, user, toggle}) => {
     const bid = data.id;
     const raisedBy = user.uid;
 
-    
+    try {
+      await await addDoc(collection(firestore, "disputes"), {
+        uid,
+        oid,
+        bid,
+        issue,
+        status: 'pending',
+        raisedBy
+      });
+      alert('Dispute submitted successfully!');
+      setIssue('');
+      toggle(false);
+    } catch (error) {
+      alert('Error submitting dispute: ', error.message);
+    }
   };
 
   return (
