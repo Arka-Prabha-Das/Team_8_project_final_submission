@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc,collection } from 'firebase/firestore';
 import { firestore } from '../firebase';
-import { toast } from "react-toastify";
+import {toast} from "react-toastify"
 
 const Star = ({ filled, onMouseEnter, onMouseLeave, onClick }) => (
   <span
@@ -14,7 +15,7 @@ const Star = ({ filled, onMouseEnter, onMouseLeave, onClick }) => (
   </span>
 );
 
-const Rating = ({ data, setReview }) => {
+const Rating = ({data,setReview}) => {
   const [hoverRating, setHoverRating] = useState(0);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -30,27 +31,17 @@ const Rating = ({ data, setReview }) => {
   const handleClick = (index) => {
     setRating(index);
   };
-
-  const submitReview = async () => {
-    try {
-      const reviewData = {
-        stars: rating,
-        content: comment,
-        bid: data.id,
-        carID: data.carID,
-        cid: data.cid,
-        name: "Test Customer"
-      };
-      
-      await addDoc(collection(firestore, "reviews"), reviewData);
-      setReview(reviewData);
-      toast.success("Review added successfully");
-    } catch (error) {
-      console.error("Error submitting review:", error);
-      toast.error("Failed to add review. Please try again later.");
-    }
-  };
-
+  const submitReview = async () =>{
+    const stars = rating;
+    const content = comment;
+    const bid = data.id;
+    const carID = data.carID;
+    const cid = data.cid;
+    const name = "Test Customer";
+    await addDoc(collection(firestore, "reviews"),{stars,content, bid,carID,cid, name});
+    setReview({name,stars,content});
+    toast.success("review added successfully");
+  }
   return (
     <div className="space-y-4">
       <div className="flex space-x-1">
@@ -71,7 +62,7 @@ const Rating = ({ data, setReview }) => {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <button className="px-4 py-2 bg-yellow-400 text-white rounded-md hover:bg-yellow-500" onClick={submitReview}>
+      <button className="px-4 py-2 bg-yellow-400 text-white rounded-md hover:bg-yellow-500" onClick={()=> submitReview()}>
         Submit Review
       </button>
     </div>
