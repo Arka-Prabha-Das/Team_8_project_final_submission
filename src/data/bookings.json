@@ -1,0 +1,10 @@
+{
+    "bookings": [
+        {
+            "id":"1",
+            "customer_name":"John Doe",
+            "customer_email":"john-doe@gmail.com",
+            "customer_phone":"1234567890"
+        }
+    ]
+}
