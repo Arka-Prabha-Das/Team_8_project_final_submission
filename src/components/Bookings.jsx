@@ -45,3 +45,39 @@ const Bookings = () => {
         filter === 'all' || booking.status === filter
     );
 
+    return (
+        <div>
+            <div className="bg-cover bg-center w-[100%] h-[30vh]  text-center"
+                style={{ backgroundImage: `url(${heading})` }}>
+                     <div className="bg-[rgba(250,250,250,0.7)] h-[30vh] flex flex-col justify-between">
+                    <Header />
+                <div className="mb-5">
+                    <h1 className="text-4xl font-bold">List of your Bookings</h1>
+                    <p>Check the details of your Bookings</p>
+                </div>
+                </div>
+            </div>
+            <div className="w-[80%] mx-auto p-4 border-2 border-gray-300 rounded-lg mt-10">
+                <select 
+                    value={filter} 
+                    onChange={(e) => setFilter(e.target.value)}
+                    className="border border-gray-300 rounded p-2"
+                >
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="accepted">Accepted</option>
+                    <option value="completed">Completed</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+            {isLoading ? <div className="w-[60%] ml-[10%] mt-4"><ShimmerPostList col={2} row={2} gap={30} /></div> :
+            <div className="w-[80%] justify-between flex flex-wrap  mx-auto mt-10">
+                {filteredBookings?.map((booking, index) => (
+                    <BookingCard key={index} data={booking} user={user} />
+                )) || <div>No bookings found.</div>}
+            </div>}
+        </div>
+    );
+}
+export default Bookings;
