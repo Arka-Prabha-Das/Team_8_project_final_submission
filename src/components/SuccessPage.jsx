@@ -40,6 +40,17 @@ const SuccessPage = () => {
                 // Create booking
                 const docRef = await addDoc(collection(firestore, "bookings"), booking);
                 console.log("Booking added to Firestore with ID:", docRef.id);
+
+                // Update car booking status
+                const carRef = doc(firestore, "cars", booking.carID);
+                await updateDoc(carRef, {
+                    bookingStatus: "booked"
+                });
+                dispatch(subscribeToBooking(docRef.id));
+                console.log("Booking added to Firestore with ID:", docRef.id);
+
+                toast.success("Your booking is done. Email sent to the owner.");
+                navigate("/bookings");
             }
         } catch (error) {
             console.error('Error processing booking:', error);
