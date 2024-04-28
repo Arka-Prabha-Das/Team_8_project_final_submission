@@ -36,6 +36,10 @@ const SuccessPage = () => {
                     to_email: booking.oemail,
                 });
                 console.log('Email sent successfully:', emailResponse);
+
+                // Create booking
+                const docRef = await addDoc(collection(firestore, "bookings"), booking);
+                console.log("Booking added to Firestore with ID:", docRef.id);
             }
         } catch (error) {
             console.error('Error processing booking:', error);
