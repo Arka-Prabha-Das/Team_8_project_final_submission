@@ -1,0 +1,220 @@
+{
+    "cars": [
+      {
+        "id":"1",
+        "name": "BMW 3 Series",
+        "img":"bmw.jpeg",
+        "passengers": 4,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3",
+        "rating": "4",
+        "type": "Sedan"
+      },
+      {
+        "id":"2",
+        "name": "Audi A4",
+        "img":"audi.jpg",
+        "passengers": 4,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3.50",
+        "rating": "4.5",
+        "type": "Sedan"
+      },
+      {
+        "id":"3",
+        "name": "Porsche 911",
+        "img":"porsche-911.jpeg",
+        "passengers": 2,
+        "luggage": 1,
+        "gear": "Manual",
+        "priceperhour": "5",
+        "rating": "5",
+        "type": "Coupe"
+      },
+      {
+        "id":"4",
+        "name": "Mini Cooper Countryman",
+        "img":"cooper.jpeg",
+        "passengers": 5,
+        "luggage": 3,
+        "gear": "Automatic",
+        "priceperhour": "2.50",
+        "rating": "4.2",
+        "type": "SUV"
+      },
+      {
+        "id":"4",
+        "name": "Mercedes-Benz C-Class",
+        "img":"benz-c.jpeg",
+        "passengers": 5,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3.25",
+        "rating": "4.6",
+        "type": "Sedan"
+      },
+      {
+        "name": "Audi TT",
+        "img": "audi-tt.jpeg",
+        "passengers": 2,
+        "luggage": 1,
+        "gear": "Automatic",
+        "priceperhour": "4",
+        "rating": "4.7",
+        "type": "Coupe"
+      },
+      {
+        "name": "Porsche Cayenne",
+        "img":"porsche-cayenne.jpeg",
+        "passengers": 5,
+        "luggage": 4,
+        "gear": "Automatic",
+        "priceperhour": "4.50",
+        "rating": "4.8",
+        "type": "SUV"
+      },
+      {
+        "name": "Mini Cooper Convertible",
+        "img":"cooper-convert.jpeg",
+        "passengers": 4,
+        "luggage": 1,
+        "gear": "Automatic",
+        "priceperhour": "3",
+        "rating": "4.3",
+        "type": "Convertible"
+      },
+      {
+        "name": "Lexus RX",
+        "img":"lexus.jpeg",
+        "passengers": 5,
+        "luggage": 3,
+        "gear": "Automatic",
+        "priceperhour": "3.75",
+        "rating": "4.9",
+        "type": "SUV"
+      },
+      {
+        "name": "Audi A5",
+        "img":"audi.jpg",
+        "passengers": 4,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3.75",
+        "rating": "4.8",
+        "type": "Coupe"
+      },
+      {
+        "name": "Porsche Macan",
+        "img":"porsche-macan.jpeg",
+        "passengers": 5,
+        "luggage": 3,
+        "gear": "Automatic",
+        "priceperhour": "4.25",
+        "rating": "4.7",
+        "type": "SUV"
+      },
+      {
+        "name": "Ford Mustang",
+        "img":"mustang.jpeg",
+        "passengers": 4,
+        "luggage": 2,
+        "gear": "Manual",
+        "priceperhour": "3.50",
+        "rating": "4.5",
+        "type": "Coupe"
+      },
+      {
+        "name": "Chevrolet Tahoe",
+        "img":"chevrolet-tahoe.jpeg",
+        "passengers": 7,
+        "luggage": 5,
+        "gear": "Automatic",
+        "priceperhour": "4.50",
+        "rating": "4.6",
+        "type": "SUV"
+      },
+      {
+        "name": "Jaguar F-Type",
+        "img":"jaguar-f-type.jpeg",
+        "passengers": 2,
+        "luggage": 1,
+        "gear": "Automatic",
+        "priceperhour": "4.75",
+        "rating": "4.9",
+        "type": "Coupe"
+      },
+      {
+        "name": "Tesla Model X",
+        "img":"tesla-x.jpeg",
+        "passengers": 7,
+        "luggage": 5,
+        "gear": "Automatic",
+        "priceperhour": "5.50",
+        "rating": "4.9",
+        "type": "SUV"
+      },
+      {
+        "name": "Toyota Camry",
+        "img":"toyota-camry.jpeg",
+        "passengers": 5,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3.20",
+        "rating": "4.5",
+        "type": "Sedan"
+      },
+      {
+        "name": "Honda Civic",
+        "img":"honda-civic.jpeg",
+        "passengers": 5,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "2.80",
+        "rating": "4.2",
+        "type": "Sedan"
+      },
+      {
+        "name": "Ford Explorer",
+        "img":"ford-explorer.jpeg",
+        "passengers": 7,
+        "luggage": 4,
+        "gear": "Automatic",
+        "priceperhour": "4.00",
+        "rating": "4.4",
+        "type": "SUV"
+      },
+      {
+        "name": "Toyota Supra",
+        "img":"supra.jpeg",
+        "passengers": 2,
+        "luggage": 1,
+        "gear": "Automatic",
+        "priceperhour": "4.50",
+        "rating": "4.8",
+        "type": "Coupe"
+      },
+      {
+        "name": "Nissan Rogue",
+        "img":"nissan-rogue.jpeg",
+        "passengers": 5,
+        "luggage": 3,
+        "gear": "Automatic",
+        "priceperhour": "3.30",
+        "rating": "4.3",
+        "type": "SUV"
+      },
+      {
+        "name": "Volkswagen Golf",
+        "img":"golf.jpeg",
+        "passengers": 5,
+        "luggage": 2,
+        "gear": "Automatic",
+        "priceperhour": "3.10",
+        "rating": "4.1",
+        "type": "Hatchback"
+      }
+    ]
+  }
+  
