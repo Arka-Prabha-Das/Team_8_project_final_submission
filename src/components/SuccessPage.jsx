@@ -62,7 +62,7 @@ const SuccessPage = () => {
 
         
    
-
+// refreshes the page 
     return (
         <div className="w-[30%] mx-auto flex flex-col text-center justify-center border-2 border-gray-100 p-10 mt-20 shadow-md">
             <div>Payment processed successfully</div>
