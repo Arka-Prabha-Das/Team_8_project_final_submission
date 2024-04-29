@@ -21,7 +21,7 @@ const RentalForm = ({car,user,owner}) => {
   const [emailError, setEmailError] = useState('');
   const [phoneError, setPhoneError] = useState('');
 
-  
+  // Integrating the Admin Module for car owner rental form 
 
   const calculateTotalFare = (dtime) => {
     // Combine date and time into a single ISO string for pickup and drop-off

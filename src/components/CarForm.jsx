@@ -23,7 +23,7 @@ const CarForm = ({ user, toggle, fetch, isEditMode = false, editData }) => {
     const [uploadProgress, setUploadProgress] = useState(0);
     const [insuranceCertificate, setInsuranceCertificate] = useState(null);
     
- 
+ // this is a conditional dependency 
     useEffect(() => {
         if (isEditMode) {
             setCarName(editData.carName || "");

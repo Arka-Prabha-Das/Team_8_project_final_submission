@@ -6,6 +6,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { subscribeToBooking } from "../utils/actions/bookings";
+// User sees this page after susscessful payment 
+// Payment Integration has been done 
 const SuccessPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -60,7 +62,7 @@ const SuccessPage = () => {
 
         
    
-
+// refreshes the page 
     return (
         <div className="w-[30%] mx-auto flex flex-col text-center justify-center border-2 border-gray-100 p-10 mt-20 shadow-md">
             <div>Payment processed successfully</div>

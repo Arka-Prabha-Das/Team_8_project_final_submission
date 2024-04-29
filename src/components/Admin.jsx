@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { collection, query, getDocs, where, updateDoc, doc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { toast } from "react-toastify";
-
+// Car owner and customer module have been integrated 
 
 const Admin = () => {
   const [userList, setUserList] = useState([]);
