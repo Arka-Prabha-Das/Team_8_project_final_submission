@@ -194,4 +194,4 @@ const BookingDetails = ({ toggle, data, user, car }) => {
         </div>
     );
 }
-export default BookingDetails;
+export default BookingDetails; // exporting booking details
