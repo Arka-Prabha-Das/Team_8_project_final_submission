@@ -25,7 +25,7 @@ const BookingCard = ({data, user}) =>{
                 console.error("Error fetching cars data: ", error);
             }
         };
-        fetchCarDetails();
+        fetchCarDetails(); // fetching car details
     })
     return (
         <div className="flex h-60 border-2 border-gray-100 rounded-md w-[600px] mt-4">
