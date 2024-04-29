@@ -1,3 +1,4 @@
+// LicenseForm.jsx
 import { useState,useEffect } from 'react';
 import heading from "../assets/heading.jpeg";
 import { collection, addDoc,query,where,getDocs } from "firebase/firestore";
