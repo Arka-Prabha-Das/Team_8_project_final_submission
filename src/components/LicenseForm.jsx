@@ -60,7 +60,7 @@ function LicenseForm() {
                 );
             });
         };
-
+        // Integrating the liscence with the admin module  
         console.log(formData);
         const imageUrl = await processImageUpload();
         const uid = user.uid;
